@@ -1,1 +1,1 @@
-"# solidity-learn" 
+# Learning Solidity by myself
