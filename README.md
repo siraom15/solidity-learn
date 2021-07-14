@@ -78,7 +78,7 @@ function eatSomething(string memory _name, uint _amount) public {
 
 >การตั้งชื่อตัวแปรใน params จะตั้งชื่อให้มี underscore( _ )เพื่อที่จะไม่สับสนกับ Global Variable 
 
-`public` keyword | ประกาศว่า function นี้ถูกเรียกใช้
+`public` keyword | ประกาศว่า function นี้ถูกเรียกใช้งานได้ทุกที่และทุกคน
 
 `memory` keyword | ต้องประกาศเมื่อเรียกใช้ ตัวแปรที่เป็น Reference Type เช่น Arrays, struct, mapping และ String
 
