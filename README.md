@@ -9,6 +9,7 @@
 แหล่งเรียนรู้
 * [Cryptozombies](https://cryptozombies.io/)
 * [Document Solidity](https://docs.soliditylang.org/en/v0.8.6/)
+* [BlockChian คืออะไร](https://nuuneoi.com/blog/blog.php?read_id=900)
 * [Medium คุณ Jedsada Tiwongvorakul](https://medium.com/20scoops-cnx/%E0%B8%A1%E0%B8%B2%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%81%E0%B8%B1%E0%B8%9A-solidity-%E0%B8%82%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%90%E0%B8%B2%E0%B8%99%E0%B8%81%E0%B8%B1%E0%B8%99-6f713b3fb64)
 ---
 ### Basic Contract
@@ -85,7 +86,8 @@ function eatSomething(string memory _name, uint _amount) public {
 
 ### Arrays & Struct
 สร้าง Arrays ของ Struct ได้แบบนี้
-```
+
+```c
 struct Person {
   uint age;
   string name;
@@ -94,9 +96,11 @@ struct Person {
 Person[] public people;
 ```
 เราสามารถสร้าง Instance ของ Struct ได้แบบนี้
-```
+
+```c
 Person aom = Person(20, "aomm");
 ```
+
 > ซึ่ง Args ของ Person จะเรียงตาม Struct นั้นคือ 20 = age, aomm = name
 
 เราสามารถเพิ่ม `aom` เข้าไปใน Arrays `people` ได้โดย
@@ -109,7 +113,8 @@ people.push(aom)
 ใน Solidity ฟังก์ชั่นจะมีค่า visible เริ่มต้น เป็น `public` ซึ่งทุกคนและทุก contract สามารถเข้าถึงและเรียกใช้งานได้
 
 `private` keyword จะทำให้ function ถูกเรียกใช้งานได้แค่ภายใน contract นี้เท่านั้น
-```
+
+```c
 uint[] numbers;
 function _addNumber(uint _num) private {
     numbers.push(_num);
