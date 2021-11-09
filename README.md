@@ -219,3 +219,44 @@ function _multiply(uint a, uint b) private pure returns (uint) {
 
 จะเห็นว่า function `_multiply` จะไม่ยุ่งเกี่ยวกับ `state` ค่าที่มันส่งกลับมาจะขึ้นอยู่กับ `params` ที่รับเข้าไป
 ดังนั้นเราใส่ keyword `pure` เข้าไปปปป
+
+### Keccak256 and Typecasting
+
+#### Keccak256
+
+ใน Ethereum มีฟังก์ชันในการทำ Hash อยู่ชื่อว่า `keccak256`
+ซึ่งมันใช้ในหลายวัตถุประสงค์ใน Ethereum
+
+ซึ่ง `function keccak256` จะรับ `parameters` ตัวเดียวเป็นชนิด `byte`
+
+ตัวอย่างเช่น
+
+```js
+//6e91ec6b618bb462a4a6ee5aa2cb0e9cf30f7a052bb467b0ba58b8748c00d2e5
+keccak256(abi.encodePacked("aaaab"));
+//b1f078126895a1424524de5321b339ab00408010b7cf0e6ed451514981e58aa9
+keccak256(abi.encodePacked("aaaac"));
+```
+
+> จะเห็นว่าแค่เปลี่ยนข้อมูลของ input นิดเดียวก็ทำให้ค่าออกมาเปลี่ยนแปลงไปจากเดิมเยอะมากกก
+
+---
+**หมายเหตุ**
+
+การสร้างตัวเลขสุ่มที่ปลอดภัยในบล็อคเชนเป็นปัญหาที่ยากมาก อันนี้เป็นการยกตัวอย่าง `function`
+
+---
+
+#### Typecasting
+
+การเปลี่ยนชนิดข้อมูลใน Solidity สามารถทำได้ดังนี้
+
+```c
+uint8 a = 5;
+uint b = 6;
+// error เพราะว่า a * b ให้ค่าเป็น unit ไม่ใช่ uint 8
+uint8 c = a * b;
+// เราสามารถแปลงให้ b เป็น uint8 ก่อนโดยการทำแบบนี้
+// ค่าที่ได้จากการคูณกันจึงเป็น type uint8
+uint8 c = a * uint8(b);
+```
