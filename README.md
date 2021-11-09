@@ -1,6 +1,6 @@
 # Learning Solidity by myself
 
-![solid logo](https://media-exp3.licdn.com/dms/image/C4D12AQHrjWDa4m4ILw/article-cover_image-shrink_720_1280/0/1523961294826?e=1631145600&v=beta&t=crxhQm5R8GpQAbclLKqD-PdYPShk2XYDDWfLEu6e9fk)
+![solid logo](https://docs.soliditylang.org/en/v0.8.10/_static/logo.svg)
 ---
 <!-- 
 ## Content
