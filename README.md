@@ -14,7 +14,7 @@
 ---
 ### Basic Contract
 
-```
+```js
 pragma solidity ^0.4.19; 
 contract HelloWorld {
 
@@ -24,6 +24,20 @@ contract HelloWorld {
 > pragma solidity เอาไว้บอก version ของ compiler
 
 ### State Variable & Integers
+
+ตัวแปร `state` จะถูกจัดเก็บใน contract storage นั้นหมายถึง มันจะถูกเขียนลงไปใน Eth Blockchain
+เหมือนกับการเขียนลง Database
+
+ตัวอย่างเช่น
+
+```js
+contract Example {
+  // ตัวแปรนี้จะถูกเก็บอย่างถาวรใน Blockchain
+  uint myUnsignedInteger = 100; //<- ตัวแปร state
+}
+```
+
+> ในตัวอย่างนี้เราสร้างตัวแปรชนิด `uint` ที่ชื่อ myUnsignedInteger และกำหนดค่าให้เป็น 100
 
 * uint (Unsigned Integers) ค่า integer ที่ไม่มีเครื่องหมายนั่นคือค่าไม่ติดลบ uint คือ uint256 ซึ่งเราสามารถประกาศเป็น bit ที่น้อยกว่า เช่น uint8, uint16, uint32 แต่ประกาศเพียงแค่ uint ก็เพียงพอ(ในบางกรณี)
 
@@ -168,9 +182,9 @@ function sayHello() public returns (string memory) {
 
 #### Function modifiers
 
-จากตัวอย่างข้างต้น function จะไม่เปลี่ยนค่า/เขียนค่าลง `State` หรือสรุปก็คือเป็นการอ่านค่า `State` อย่างเดียว
+จากตัวอย่างข้างต้น function จะไม่เปลี่ยนค่า/เขียนค่าลง `State` หรือสรุปก็คือเป็นการอ่านค่า `State`
 
-ดังนั้นในกรณีนี้เราจะใช้ `Modifier` คือ `view` ไว้บอกว่า function นี้อ่านค่า `State` อย่างเดียว
+ดังนั้นในกรณีนี้เราจะใช้ `Modifier` คือ `view` ไว้บอกว่า function นี้มีการยุ่งเกี่ยวกับค่าใน storage (`state`)
 
 ตัวอย่าง
 
