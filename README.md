@@ -260,3 +260,30 @@ uint8 c = a * b;
 // ค่าที่ได้จากการคูณกันจึงเป็น type uint8
 uint8 c = a * uint8(b);
 ```
+
+### Events
+
+Event คือสิ่งที่ทำให้ contract ของเราติดต่อกับส่วน front-end ได้โดยการทำคล้ายๆกับ `listening`
+
+ตัวอย่างการประกาศ Event
+
+```js
+event IntegersAdded(uint x, uint y, uint result);
+
+function add(uint _x, uint _y) public returns (uint) {
+  uint result = _x + _y;
+  // เรียกใช้ Event เพื่อให้แอปทราบว่ามีการเรียกใช้ฟังก์ชันนี้
+  emit IntegersAdded(_x, _y, result);
+  return result;
+}
+```
+
+> Keyword `event` ใช้ประกาศ Event และ `emit` ใช้เรียกใช้งาน Event
+
+และ front-end จะมีการ implement code ประมาณนี้
+
+```js
+YourContract.IntegersAdded(function(error, result) {
+  // do something with result
+})
+```
